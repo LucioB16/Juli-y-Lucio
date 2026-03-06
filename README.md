@@ -2,7 +2,7 @@
 
 Una invitación de boda digital, elegante y 100% configurable. Desplegá tu propio sitio en minutos, sin saber programar.
 
-🔗 **[Ver demo en vivo](https://luciob16.github.io/Altare/)**
+🔗 **[Ver demo en vivo](https://luciob16.github.io/Juli-y-Lucio/)**
 
 ---
 
@@ -28,7 +28,7 @@ Hacé click en el botón de abajo para crear una copia del template en tu cuenta
 
 Usá nuestro **Config Builder** para generar tu archivo de configuración sin tocar código:
 
-[![Abrir Config Builder](https://img.shields.io/badge/🔧_Abrir_Config_Builder-5A7156?style=for-the-badge&logoColor=white)](https://luciob16.github.io/Altare/config-builder/)
+[![Abrir Config Builder](https://img.shields.io/badge/🔧_Abrir_Config_Builder-5A7156?style=for-the-badge&logoColor=white)](https://luciob16.github.io/Juli-y-Lucio/config-builder/)
 
 El Config Builder te guía paso a paso para configurar:
 - 👫 Nombres de la pareja
