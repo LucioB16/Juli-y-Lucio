@@ -1,0 +1,51 @@
+---
+import { getWeddingData } from "../data/weddingData";
+
+const { gifts } = getWeddingData();
+import Divider from "./Divider.astro";
+import SectionIcon from "./SectionIcon.astro";
+---
+
+<Divider type="flower" />
+<section class="section py-24 bg-surface-soft">
+  <div class="section__inner container mx-auto px-6 text-center max-w-5xl">
+
+    <SectionIcon name="gifts" />
+
+    <p class="text-xs md:text-sm tracking-[0.4em] font-sans uppercase text-primary opacity-80 mb-4">
+        Tu presencia es nuestro regalo
+    </p>
+
+    <h2 class="text-4xl md:text-5xl font-display text-primary tracking-wide mb-10" style="font-family: var(--font-display);">
+        {gifts.heading}
+    </h2>
+
+    <div class="theme-panel p-8 md:p-12 max-w-3xl mx-auto flex flex-col items-center">
+        <p class="text-text-muted leading-relaxed font-sans mb-10">
+            {gifts.body}
+        </p>
+        
+        {gifts.bank.enabled && (
+            <div class="w-full flex inset-0 justify-center">
+                <!-- Using a simple details/summary tag instead of AlpineJS to keep it vanilla HTML and easy -->
+                <details class="w-full max-w-md cursor-pointer group">
+                    <summary class="theme-button-primary tracking-[0.2em] uppercase text-sm font-semibold py-4 px-8 transition-colors list-none text-center">
+                        {gifts.buttonLabel}
+                    </summary>
+                    <div class="mt-6 bg-surface-soft p-6 text-left border border-border text-sm text-text-muted">
+                        <p class="mb-3"><span class="font-semibold text-primary">Titular:</span> {gifts.bank.holderName}</p>
+                        <p class="mb-3"><span class="font-semibold text-primary">Banco:</span> {gifts.bank.bankName}</p>
+                        <p class="mb-3"><span class="font-semibold text-primary">Alias:</span> {gifts.bank.alias}</p>
+                        <p class="mb-3"><span class="font-semibold text-primary">CBU/CVU:</span> {gifts.bank.cbu}</p>
+                        <p class="mb-0"><span class="font-semibold text-primary">CUIT/CUIL:</span> {gifts.bank.cuit}</p>
+                    </div>
+                </details>
+            </div>
+        )}
+    </div>
+  </div>
+</section>
+
+
+
+

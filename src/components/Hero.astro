@@ -1,0 +1,88 @@
+---
+import { getWeddingData } from "../data/weddingData";
+import { resolveAssetPath } from "../utils/resolveAssetPath";
+import Icon from "./Icon.astro";
+const { hero } = getWeddingData();
+const backgroundImageUrl = resolveAssetPath(hero.backgroundImage);
+---
+
+<section
+    id="hero"
+    class="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center text-center px-6"
+    style={`
+        scroll-snap-align: start;
+        ${backgroundImageUrl ? `background-image: linear-gradient(var(--color-overlay-from), var(--color-overlay-to)), url("${backgroundImageUrl}");` : ""}
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: var(--color-background);
+    `}
+>
+    <!-- Content container -->
+    <div
+        class="hero-content z-10 flex flex-col items-center justify-center space-y-6 md:space-y-8 mt-12 opacity-0"
+    >
+        <p
+            class="text-sm md:text-base tracking-[0.4em] font-sans uppercase text-text-muted"
+        >
+            {hero.title}
+        </p>
+
+        <h1
+            class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl tracking-normal text-primary drop-shadow-sm"
+            style="font-family: var(--font-display);"
+            id="hero-heading"
+        >
+            {hero.subtitle}
+        </h1>
+
+        <div class="space-y-3 mt-4 text-text-muted">
+            <p
+                class="text-xl md:text-2xl"
+                style="font-family: var(--font-display);"
+            >
+                {hero.dateDisplay}
+            </p>
+            <p
+                class="text-xs md:text-sm tracking-[0.2em] uppercase font-sans opacity-90"
+            >
+                {hero.city}
+            </p>
+        </div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div
+        class="scroll-indicator absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce opacity-0"
+    >
+        <Icon
+            name="lucide:arrow-down"
+            class="text-2xl text-text-subtle opacity-70"
+        />
+    </div>
+</section>
+
+<script>
+    import gsap from "gsap";
+
+    requestAnimationFrame(() => {
+        // Smooth elegant fade in for the hero content
+        gsap.to(".hero-content", {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            ease: "power3.out",
+            delay: 0.3,
+        });
+
+        gsap.to(".scroll-indicator", {
+            opacity: 1,
+            duration: 1.5,
+            ease: "power3.out",
+            delay: 1.2,
+        });
+    });
+</script>
+
+
+

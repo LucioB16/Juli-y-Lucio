@@ -1,0 +1,54 @@
+---
+import { getWeddingData } from "../data/weddingData";
+
+const { dressCode } = getWeddingData();
+import Divider from "./Divider.astro";
+import SectionIcon from "./SectionIcon.astro";
+---
+
+<Divider type="small" />
+<section class="section py-24 bg-surface-alt">
+    <div class="section__inner container mx-auto px-6 text-center max-w-5xl">
+        <SectionIcon name="dresscode" />
+
+        <p
+            class="text-xs md:text-sm tracking-[0.4em] font-sans uppercase text-primary opacity-80 mb-4"
+        >
+            ¿Qué me pongo?
+        </p>
+
+        <h2
+            class="text-4xl md:text-5xl font-display text-primary tracking-wide mb-10"
+            style="font-family: var(--font-display);"
+        >
+            {dressCode.title}
+        </h2>
+
+        <div
+            class="theme-panel p-8 md:p-12 max-w-3xl mx-auto flex flex-col items-center"
+        >
+            <p
+                class="text-xl md:text-2xl text-primary mb-6"
+                style="font-family: var(--font-display);"
+            >
+                {dressCode.tag}
+            </p>
+            <p class="text-text-muted leading-relaxed font-sans mb-8">
+                {dressCode.body}
+            </p>
+
+            {
+                dressCode.brideDisclaimer?.enabled && (
+                    <div class="bg-surface-soft px-6 py-4 text-sm text-text-subtle w-full">
+                        {dressCode.brideDisclaimer.text ||
+                            "Como es tradición, los colores blancos, o similares, estarán reservados para la novia."}
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</section>
+
+
+
+

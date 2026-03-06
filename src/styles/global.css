@@ -1,0 +1,219 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/800.css";
+@import "@fontsource/playfair-display/900.css";
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-display: "Playfair Display", serif;
+    --section-padding: clamp(2rem, 7vw, 6rem);
+    --section-max-width: 1000px;
+    --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.08);
+
+    --color-primary: #5a7156;
+    --color-secondary: #f4f1e1;
+    --color-accent: #bda588;
+    --color-background: #faf9f6;
+    --color-surface: #ffffff;
+    --color-surface-alt: #eef0ec;
+    --color-surface-soft: #f8f7f4;
+    --color-text: #333333;
+    --color-text-dark: #333333;
+    --color-text-light: #f4f1e1;
+    --color-text-muted: #58615a;
+    --color-text-subtle: #6c746f;
+    --color-border: #d8ded1;
+    --color-overlay-from: rgba(255, 255, 255, 0.3);
+    --color-overlay-to: rgba(255, 255, 255, 0.6);
+    --color-spotify: #1db954;
+    --color-spotify-text: #102d26;
+}
+
+:root {
+    color-scheme: light;
+    background-color: var(--color-background);
+    --ornament-1: #6b8e6b;
+    --ornament-2: #7a9e7a;
+    --ornament-3: #8bae8b;
+    --ornament-footer: #ffffff;
+}
+
+@layer base {
+    *,
+    *::before,
+    *::after {
+        @apply antialiased;
+    }
+
+    html {
+        scroll-snap-type: y mandatory;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        background-color: var(--color-background);
+        color: var(--color-text);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-display);
+    }
+}
+
+@layer components {
+    .section {
+        min-height: auto;
+        padding: var(--section-padding);
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        scroll-snap-align: start;
+    }
+
+    footer {
+        scroll-snap-align: start;
+    }
+
+    .section__inner {
+        width: 100%;
+        max-width: var(--section-max-width);
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity 0.6s cubic-bezier(0.2, 0.9, 0.2, 1),
+            transform 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+
+    .section.is-visible .section__inner {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .theme-panel {
+        border: 1px solid var(--color-border);
+        background: var(--color-surface);
+        box-shadow: 0 1px 2px color-mix(in srgb, var(--color-primary), transparent 88%);
+    }
+
+    .theme-button-primary {
+        background: var(--color-primary);
+        color: var(--color-secondary);
+    }
+
+    .theme-button-primary:hover {
+        background: color-mix(in srgb, var(--color-primary), black 10%);
+    }
+
+    .theme-button-secondary {
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+        background: transparent;
+    }
+
+    .theme-button-secondary:hover {
+        background: var(--color-primary);
+        color: var(--color-secondary);
+    }
+
+    .theme-button-spotify {
+        background: var(--color-spotify);
+        color: var(--color-spotify-text);
+    }
+
+    .theme-button-spotify:hover {
+        background: color-mix(in srgb, var(--color-spotify), black 10%);
+    }
+
+    .theme-ornament svg {
+        transition:
+            transform 220ms ease,
+            filter 220ms ease,
+            opacity 220ms ease;
+    }
+
+    body[data-theme="marfil-editorial"] .theme-ornament svg {
+        transform: scale(0.94);
+        filter: saturate(0.86);
+    }
+
+    body[data-theme="marfil-editorial"] .theme-ornament path[stroke] {
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+    }
+
+    body[data-theme="botanica-nocturna"] .theme-ornament svg {
+        transform: scale(1.02);
+        filter: saturate(1.18) contrast(1.1);
+    }
+
+    body[data-theme="botanica-nocturna"] .theme-ornament [fill]:not([fill="none"]) {
+        opacity: 0.85 !important;
+    }
+
+    body[data-theme="rosa-antiguo"] .theme-ornament svg {
+        transform: rotate(-1.2deg) scale(1.03);
+        filter: saturate(0.92);
+    }
+
+    body[data-theme="galeria-moderna"] .theme-ornament svg {
+        transform: scale(0.95) rotate(0.8deg);
+    }
+
+    body[data-theme="galeria-moderna"] .theme-ornament path[stroke] {
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+    }
+
+    .card {
+        border: 1px solid color-mix(in srgb, var(--color-accent), transparent 40%);
+        box-shadow: var(--shadow-card);
+        backdrop-filter: blur(6px);
+        transition:
+            box-shadow 0.3s ease,
+            transform 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+    .card:is(:hover, :focus-within) {
+        transform: translateY(-4px);
+        box-shadow: 0 32px 70px color-mix(in srgb, var(--color-primary), transparent 65%);
+    }
+
+    .card:is(:hover, :focus-within) .card__glow {
+        opacity: 1;
+    }
+
+    .card__avatar {
+        box-shadow: 0 18px 35px color-mix(in srgb, var(--color-primary), transparent 75%);
+        border: 2px solid color-mix(in srgb, var(--color-background), white 30%);
+    }
+
+    .card__title {
+        color: var(--color-primary);
+    }
+
+    .card__subtitle {
+        color: var(--color-accent);
+        letter-spacing: 0.2em;
+    }
+
+    .card__body,
+    .card__footer {
+        color: color-mix(in srgb, var(--color-primary) 70%, var(--color-text-light) 30%);
+    }
+}
+
+
+

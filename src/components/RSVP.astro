@@ -1,0 +1,67 @@
+---
+import { getWeddingData } from "../data/weddingData";
+
+const { rsvp } = getWeddingData();
+import Divider from "./Divider.astro";
+import SectionIcon from "./SectionIcon.astro";
+
+const formatDateDDMMYYYY = (value?: string) => {
+    if (!value) return "";
+
+    const isoDateMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value.trim());
+    if (!isoDateMatch) return value;
+
+    return `${isoDateMatch[3]}/${isoDateMatch[2]}/${isoDateMatch[1]}`;
+};
+
+const formattedDeadline = formatDateDDMMYYYY(rsvp.deadline);
+---
+
+<Divider type="large" />
+<section class="section py-24 bg-surface-alt">
+    <div class="section__inner container mx-auto px-6 text-center max-w-5xl">
+        <SectionIcon name="calendar" />
+
+        <p
+            class="text-xs md:text-sm tracking-[0.4em] font-sans uppercase text-primary opacity-80 mb-4"
+        >
+            ¿Nos acompañas?
+        </p>
+
+        <h2
+            class="text-4xl md:text-5xl font-display text-primary tracking-wide mb-10"
+            style="font-family: var(--font-display);"
+        >
+            Confirmación de asistencia
+        </h2>
+
+        <div
+            class="theme-panel p-8 md:p-12 max-w-3xl mx-auto flex flex-col items-center"
+        >
+            <p class="text-lg text-text-muted mb-8 font-sans leading-relaxed whitespace-pre-line">
+                {rsvp.text}
+            </p>
+
+            {
+                rsvp.deadline && (
+                    <p class="text-sm font-semibold text-primary mb-8 tracking-[0.2em] uppercase">
+                        FECHA LÍMITE: {formattedDeadline}
+                    </p>
+                )
+            }
+
+            {
+                rsvp.link?.enabled && rsvp.link.url && (
+                    <a
+                        href={rsvp.link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="theme-button-primary tracking-[0.2em] uppercase text-sm font-semibold py-4 px-8 transition-colors w-full sm:w-auto"
+                    >
+                        {rsvp.link.label || "CONFIRMAR ASISTENCIA"}
+                    </a>
+                )
+            }
+        </div>
+    </div>
+</section>

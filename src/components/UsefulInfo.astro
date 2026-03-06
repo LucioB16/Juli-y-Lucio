@@ -1,0 +1,54 @@
+---
+import { getWeddingData } from "../data/weddingData";
+import Icon from "./Icon.astro";
+const data = getWeddingData();
+const info = data.usefulInfo;
+const enabledItems = info.items.filter((i) => i.enabled);
+import Divider from "./Divider.astro";
+import SectionIcon from "./SectionIcon.astro";
+---
+
+<Divider type="small" />
+<section class="section py-24 bg-surface">
+  <div class="section__inner container mx-auto px-6 max-w-5xl">
+    <!-- Title Area (matching the footer style with leaves) -->
+    <div class="text-center mb-16">
+      <SectionIcon name="info" />
+      <h2
+        class="text-4xl md:text-5xl font-display text-primary tracking-wide"
+        style="font-family: var(--font-display);"
+      >
+        {info.title}
+      </h2>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="flex flex-wrap justify-center gap-8">
+      {
+        enabledItems.map((item) => (
+            <div class="flex w-full max-w-xl flex-col items-center text-center md:w-[calc(50%-1rem)]">
+              <div class="text-primary mb-6 flex justify-center items-center w-12 h-12">
+                <Icon name={item.icon} class="text-4xl" />
+              </div>
+
+              <h3
+                class="font-display text-xl md:text-2xl text-primary mb-4"
+                style="font-family: var(--font-display);"
+              >
+                {item.title}
+              </h3>
+
+              <p
+                class="text-text-muted leading-relaxed font-sans"
+                style="font-family: var(--font-sans);"
+              >
+                {item.description}
+              </p>
+            </div>
+          ))
+      }
+    </div>
+  </div>
+</section>
+
+

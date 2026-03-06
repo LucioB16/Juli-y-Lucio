@@ -1,0 +1,110 @@
+---
+import { getWeddingData } from "../data/weddingData";
+import { resolveAssetPath } from "../utils/resolveAssetPath";
+import Divider from "./Divider.astro";
+import SectionIcon from "./SectionIcon.astro";
+
+const { story } = getWeddingData();
+const photos = story.photos || [];
+const photoCount = Math.min(photos.length, 4);
+---
+
+<Divider type="large" />
+<section class="section py-24 bg-surface">
+    <div class="section__inner container mx-auto px-6 max-w-5xl text-center">
+        <SectionIcon name="story" />
+
+        <p
+            class="text-xs md:text-sm tracking-[0.4em] font-sans uppercase text-primary opacity-80 mb-4"
+        >
+            {story.subheading}
+        </p>
+
+        <h2
+            class="text-4xl md:text-5xl font-display text-primary tracking-wide mb-10"
+            style="font-family: var(--font-display);"
+        >
+            {story.heading}
+        </h2>
+
+        {/* Photo grid */}
+        {
+            photoCount > 0 && (
+                <div class:list={["story-grid", `story-grid--${photoCount}`]}>
+                    {photos.slice(0, 4).map((photo: any) => (
+                        <div class="story-grid__item">
+                            <img
+                                src={resolveAssetPath(photo.src)}
+                                alt={photo.alt}
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))}
+                </div>
+            )
+        }
+
+        {
+            story.sentence && (
+                <p
+                    class="text-text-muted leading-relaxed font-sans mt-10 max-w-2xl mx-auto italic"
+                    style="font-family: var(--font-display);"
+                >
+                    {story.sentence}
+                </p>
+            )
+        }
+    </div>
+</section>
+
+<style>
+    .story-grid {
+        display: grid;
+        gap: 6px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .story-grid__item {
+        overflow: hidden;
+        aspect-ratio: 1;
+    }
+
+    .story-grid__item img {
+        transition: transform 0.4s ease;
+    }
+
+    .story-grid__item:hover img {
+        transform: scale(1.03);
+    }
+
+    /* 1 photo: single full-width */
+    .story-grid--1 {
+        grid-template-columns: 1fr;
+    }
+    .story-grid--1 .story-grid__item {
+        aspect-ratio: 4/3;
+    }
+
+    /* 2 photos: side by side */
+    .story-grid--2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* 3 photos: first one large, two small below */
+    .story-grid--3 {
+        grid-template-columns: 1fr 1fr;
+    }
+    .story-grid--3 .story-grid__item:first-child {
+        grid-column: 1 / -1;
+        aspect-ratio: 16/9;
+    }
+
+    /* 4 photos: 2x2 grid */
+    .story-grid--4 {
+        grid-template-columns: 1fr 1fr;
+    }
+</style>
+
+
