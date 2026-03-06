@@ -1,8 +1,8 @@
 site:
-  pageTitle: "Nuestra Boda | Juli & Lucio"
+  pageTitle: "Nos casamos"
   meta:
-    description: "Estás invitado a celebrar con nosotros este momento tan especial."
-    ogImage: "/media/og/og.jpg"
+    description: "Queremos invitarte"
+    ogImage: "/media/og/SAB_2825.jpg"
 
 couple:
   person1:
@@ -16,31 +16,29 @@ locale:
   timeZone: "America/Buenos_Aires"
 
 theme:
-  id: "jardin-clasico"
+  id: "rosa-antiguo"
 
-demo:
-  themeSwitcher: true
 sections:
   countdown:
     enabled: true
   ceremony:
-    enabled: true
+    enabled: false
   celebration:
     enabled: true
   story:
     enabled: true
   socials:
-    enabled: true
+    enabled: false
   gifts:
     enabled: true
   dressCode:
-    enabled: true
+    enabled: false
   rsvp:
     enabled: true
   calendar:
     enabled: true
   playlist:
-    enabled: true
+    enabled: false
   usefulInfo:
     enabled: true
 
@@ -48,12 +46,12 @@ hero:
   enabled: true
   title: "¡Nos casamos!"
   subtitle: "Julieta & Lucio"
-  dateDisplay: "21 de Junio de 2026"
+  dateDisplay: "23 de Mayo de 2026"
   city: "Córdoba, Argentina"
-  backgroundImage: "/media/hero/bg.jpg"
+  backgroundImage: "/media/hero/SAB_2921.jpg"
 
 countdown:
-  target: "2026-06-21T21:00:00-03:00"
+  target: "2026-05-23T20:30:00-03:00"
   heading: "Cuenta regresiva"
   note: "¡Falta muy poco!"
   targetSource: "celebration"
@@ -70,7 +68,7 @@ events:
       - "Córdoba Capital"
     mapsUrl: "https://maps.app.goo.gl/"
   ceremony:
-    enabled: true
+    enabled: false
     kindLabel: "Ceremonia Civil"
     datetime: "2026-06-21T18:00:00-03:00"
     timeDisplay: "18:00 hs"
@@ -82,34 +80,32 @@ events:
   celebration:
     enabled: true
     kindLabel: "Fiesta"
-    datetime: "2026-06-21T21:00:00-03:00"
-    timeDisplay: "21:00 hs"
-    venueName: "Estancia La Paz"
+    datetime: "2026-05-23T20:30:00-03:00"
+    timeDisplay: "20:30 hs"
+    venueName: "Nicanor Multiespacio"
     addressLines:
-      - "Ruta E66 Km 41"
-      - "Ascochinga, Córdoba"
-    mapsUrl: "https://maps.app.goo.gl/"
+      - "Enfermera Clermont 256"
+      - "Córdoba Capital"
+    mapsUrl: "https://maps.app.goo.gl/mYHL6srUXcsk3sHG6"
 
 story:
   heading: "Nuestra historia"
   subheading: "Nosotros"
-  sentence: "Hace 5 años cruzamos miradas por primera vez en aquel viaje, y desde ese día supimos que queríamos caminar juntos para siempre. Las risas, los viajes y los mates compartidos nos trajeron hasta acá."
+  sentence: "Escribiendo juntos nuestro capítulo favorito"
   photos:
-    - src: "/media/couple/01.jpg"
-      alt: "Foto juntos 1"
-    - src: "/media/couple/02.jpg"
-      alt: "Foto juntos 2"
-    - src: "/media/couple/03.jpg"
-      alt: "Foto juntos 3"
-    - src: "/media/couple/04.jpg"
-      alt: "Foto juntos 4"
+    - src: "/media/couple/SAB_2825.jpg"
+      alt: "Foto 1"
+    - src: "/media/couple/SAB_3152.jpg"
+      alt: "Foto 2"
+    - src: "/media/couple/SAB_3217.jpg"
+      alt: "Foto 3"
 
 socials:
   heading: "Redes Sociales"
-  body: "Además, antes del casamiento, recibirás un link donde podrás subir todas tus fotos y videos del evento para compartirlos con nosotros y no perdernos nada de ese día."
+  body: "Además, antes del casamiento, recibirás un link donde podrás subir todas tus fotos y videos."
   items:
     - label: "Instagram"
-      handle: "@juliylucio_boda"
+      handle: "@tuboda"
       url: "https://instagram.com"
 
 gifts:
@@ -118,30 +114,32 @@ gifts:
   buttonLabel: "Ver datos bancarios"
   bank:
     enabled: true
-    holderName: "LUCIO PEREZ"
-    bankName: "Banco Galicia"
-    alias: "BODA.JULI.LUCIO"
-    cbu: "0070000000000000000000"
-    cuit: "20-12345678-9"
+    holderName: "Julieta Andretich"
+    bankName: "Banco de la Ciudad de Buenos Aires"
+    alias: "juylucio.casamiento"
+    cbu: "0290000110000624375107"
+    cuit: "27-40109616-2"
 
 dressCode:
   title: "Dress Code"
-  tag: "Formal - Elegante"
+  tag: "Formal – Elegante"
   body: "Te esperamos con tu mejor look para celebrar juntos."
   brideDisclaimer:
-    enabled: true
+    enabled: false
     text: "Como es tradición, los colores blancos, o similares, estarán reservados para la novia."
 
 rsvp:
-  text: "Por favor confirmá tu asistencia antes del 1 de Mayo."
-  deadline: "2026-05-01"
+  text: |
+    Recibiras un link de parte de los novios a traves del cual podras confirmar tu asistencia.
+    Por favor confirmá tu asistencia antes del 5 de Abril.
+  deadline: "2026-04-05"
   link:
     enabled: false
     url: "https://wa.me/123456789"
     label: "CONFIRMAR ASISTENCIA"
 
 calendar:
-  mode: "single" # "single" | "two" | "three"
+  mode: "single"
   googleCalendar:
     enabled: true
   ics:
@@ -162,9 +160,4 @@ usefulInfo:
     - enabled: true
       icon: "lucide:clock"
       title: "Duración"
-      description: "La fiesta se extenderá hasta el amanecer."
-    - enabled: true
-      icon: "lucide:parking-circle"
-      title: "Estacionamiento"
-      description: "Hay estacionamiento privado y vigilado gratuito en el lugar."
-
+      description: "La fiesta durará hasta las 4:00 AM."
