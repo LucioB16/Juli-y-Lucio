@@ -131,8 +131,8 @@ dressCode:
 rsvp:
   text: |
     Recibiras un link de parte de los novios a traves del cual podras confirmar tu asistencia.
-    Por favor confirmá tu asistencia antes del 5 de Abril.
-  deadline: "2026-04-05"
+    Por favor confirmá tu asistencia antes del 19 de Abril.
+  deadline: "2026-04-19"
   link:
     enabled: false
     url: "https://wa.me/123456789"
