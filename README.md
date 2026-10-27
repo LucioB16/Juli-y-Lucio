@@ -1,10 +1,17 @@
-# 💍 Invitación de Boda — Template
+# Invitación de boda · Astro Template
 
-Una invitación de boda digital, elegante y 100% configurable. Desplegá tu propio sitio en minutos, sin saber programar.
+**Una invitación digital propia, con temas elegibles y configuración visual sin tocar código.**
 
-🔗 **[Ver demo en vivo](https://luciob16.github.io/Juli-y-Lucio/)**
+Este proyecto reúne una invitación de boda hecha con **Astro** y un template reutilizable para crear otras: fechas, eventos, confirmación de asistencia, regalos, música y datos útiles se configuran desde `wedding.yml`. El **Config Builder** ayuda a preparar ese archivo.
 
----
+**[Ver la demo real](https://luciob16.github.io/Juli-y-Lucio/)** · **[Configurar una invitación](https://luciob16.github.io/Juli-y-Lucio/config-builder/)** · **[Crear desde el template Altare](https://github.com/LucioB16/Altare/generate)**
+
+| Diseñá | Personalizá | Publicá |
+| :-- | :-- | :-- |
+| Elegí entre los temas disponibles con vista previa. | Ajustá fecha, secciones, RSVP, fotos y enlaces mediante YAML. | Desplegá con GitHub Pages y GitHub Actions. |
+
+> [!NOTE]
+> El repositorio incluye recursos fotográficos, pero este README **no muestra fotos personales**. Para conocer la apariencia de la interfaz, abrí la demo real.
 
 ## 🚀 Crear tu invitación en 4 pasos
 
@@ -12,7 +19,7 @@ Una invitación de boda digital, elegante y 100% configurable. Desplegá tu prop
 
 Hacé click en el botón de abajo para crear una copia del template en tu cuenta de GitHub:
 
-[![Use this template](https://img.shields.io/badge/Usar_este_template-238636?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LucioB16/Altare/generate)
+**[Usar el template en GitHub](https://github.com/LucioB16/Altare/generate)**
 
 > 💡 **Nota importante:** El nombre que le pongas al repositorio determinará el link (URL) final de tu invitación. 
 > Por ejemplo, si tu usuario de GitHub es `mariaj` y elegís el nombre `mi-boda` para el repo, tu invitación quedará en: `https://mariaj.github.io/mi-boda/`
@@ -28,7 +35,7 @@ Hacé click en el botón de abajo para crear una copia del template en tu cuenta
 
 Usá nuestro **Config Builder** para generar tu archivo de configuración sin tocar código:
 
-[![Abrir Config Builder](https://img.shields.io/badge/🔧_Abrir_Config_Builder-5A7156?style=for-the-badge&logoColor=white)](https://luciob16.github.io/Juli-y-Lucio/config-builder/)
+**[Abrir el Config Builder](https://luciob16.github.io/Juli-y-Lucio/config-builder/)**
 
 El Config Builder te guía paso a paso para configurar:
 - 👫 Nombres de la pareja
